@@ -14,20 +14,22 @@ public class Main {
         String vstup ="";
 
         while(!vstup.equals("0")) {
-            System.out.println("Vitejde v obchode. Pro vstup do autosalonu stisknete 1, pro vstup do knihkupectvi 2, pro vstup do kina 3, pro vstup do elektro obchodu 4, pro vstup do knihovny 5 a pro vstup do video pujcovny 6.");
+            System.out.println("Vitejde v obchode. Pro vstup do autosalonu stisknete 1, pro vstup do knihkupectví 2, pro vstup do kina 3,  pro vstup do elektro obchodu 4, pro vstup do knihovny 5 a pro vstup do video pujcovny 6.");
             System.out.println("Pro ukonceni programu stisknete 0.");
             vstup = sc.nextLine();
 
             switch(vstup) {
                 case "1":
-                    CarDatabase carDatabase = new CarDatabase("Jita");
+                    System.out.print("Zadejte jméno vlastníka obchodu s auty: ");
+                    String ownerName = sc.nextLine();
+                    CarDatabase carDatabase = new CarDatabase(ownerName);
                     System.out.println("Kolik si prejete pridat aut?");
                     int pocet = sc.nextInt();
                     sc.nextLine();
                     carDatabase.addCars(pocet);
                     carDatabase.printCarInGoodCondition();
-                    carDatabase.printInterestingFacts();
-                    carDatabase.printCarWithMostKms();
+                    carDatabase.nejviceujeteKM();
+                    carDatabase.VypisZajimavosti();
                     break;
                 case "2":
                     BookStore knihkupectvi = new BookStore();
@@ -49,6 +51,8 @@ public class Main {
                     sc.nextLine();
                     items.addItems(pocet);
                     items.printInfo();
+                    items.ItemsWithMiraA();
+                    items.TotalItems();
                     break;
                 case "5":
                     Library library = new Library();
@@ -65,6 +69,9 @@ public class Main {
                     sc.nextLine();
                     movieDatabase.addMovies(pocet);
                     movieDatabase.printInfo();
+                    break;
+                case "0":
+                    System.out.println("Program se ukončuje");
                     break;
                 default:
                     System.out.println("Zadana neplatna volba. Oprav se: ");

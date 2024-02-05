@@ -1,46 +1,45 @@
 package autosaloon;
 
 public class Car {
-    private int yearOfManufacture;
-    private int kms;
-    private String color;
-    private Condition condition;
 
-    // Parametrický konstruktor
-    public Car(int yearOfManufacture, int mileage, String color, Condition condition) {
-        this.yearOfManufacture = yearOfManufacture;
-        this.kms = mileage;
-        this.color = color;
+    public enum condition {
+        bad,
+        good,
+        damaged,
+        excellent;
+    }
+    public int rokVyroby;
+    public int ujeteKM;
+    public String barva;
+    public String condition;
+
+    public Car(int rokVyroby, int ujeteKM, String barva, String condition) {
+        this.rokVyroby = rokVyroby;
+        this.ujeteKM = ujeteKM;
+        this.barva = barva;
         this.condition = condition;
     }
 
-    public Condition getCondition() {
+    public int getRokVyroby() {
+        return rokVyroby;
+    }
+
+    public int getUjeteKM() {
+        return ujeteKM;
+    }
+
+    public String getBarva() {
+        return barva;
+    }
+
+    public String getCondition() {
         return condition;
     }
 
-    public int getKms() {
-        return kms;
+    public String printinfo() {
+        return "Auto bylo vyrobeno v roce "+rokVyroby+" Ujelo "+ujeteKM+" Km a je "+barva+", jeho condice je "+condition;
     }
 
-    public void setKms(int kms) {
-        this.kms = kms;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    // Metoda pro výpis informací o autě
-    public void printInfo() {
-        System.out.println("Car Information:");
-        System.out.println("Year of Manufacture: " + yearOfManufacture);
-        System.out.println("Mileage: " + kms  + " km");
-        System.out.println("Color: " + color);
-        System.out.println("Condition: " + condition);
-    }
-	
 }
+
+

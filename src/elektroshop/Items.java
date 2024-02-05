@@ -1,6 +1,9 @@
 package elektroshop;
+import autosaloon.Car;
 
+import java.util.Scanner;
 public class Items {
+    static Scanner sc = new Scanner(System.in);
     private Fridge[] items;
 
 
@@ -9,10 +12,15 @@ public class Items {
      * @param count - pozadovany pocet lednicek
      */
     public void addItems(int count) {
-      //  items = new ....
-        for (int i=0; i<count; count++){
-            //nacti od uzivatele míru spotreby a rok výroby ledničky
-            //pridej lednicku do pole lednicek
+        items = new Fridge[count];
+        for (int i=0; i<count; i++){
+            System.out.println("Zadejte rok Vyroby:");
+            int rokVyroby = sc.nextInt();
+            sc.nextLine();
+
+            System.out.println("Zadejte miru spotreby: (A-G)");
+            Type mira = Type.valueOf(sc.nextLine());
+            items[i] = new Fridge(rokVyroby, mira);
         }
 
     }
@@ -24,8 +32,24 @@ public class Items {
      * Na poslednim radku bude text "-----".
      */
     public void printInfo(){
+        Fridge FRIDGE = items[0];
         System.out.println("-----INFO O LEDNICKACH-----");
-        //sem dopln kod
+        for (int i =0;i< items.length;i++) {
+            FRIDGE = items[i];
+            System.out.println(FRIDGE.PrintInfo());
+        }
         System.out.println("-----");
+    }
+
+    public void ItemsWithMiraA() {
+        for (int i=0;i< items.length;i++) {
+            if (items[i].getMira()==Type.A) {
+                System.out.println(items[i].PrintInfo());
+            }
+        }
+    }
+
+    public void TotalItems() {
+        System.out.println("Total number of items: "+items.length);
     }
 }
