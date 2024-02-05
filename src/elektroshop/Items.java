@@ -52,4 +52,52 @@ public class Items {
     public void TotalItems() {
         System.out.println("Total number of items: "+items.length);
     }
+
+    public void Zajimavosti() {
+
+
+                int CountA =0;
+                int CountB =0;
+                int CountC =0;
+                int CountD =0;
+                int CountE =0;
+                int CountF =0;
+                int CountG =0;
+                for (Fridge item : items) {
+                    switch(item.getMira()) {
+                        case A:
+                            CountA++;
+                            break;
+                        case B :
+                            CountB++;
+                            break;
+                        case C :
+                            CountC++;
+                            break;
+                        case D :
+                            CountD++;
+                            break;
+                        case E :
+                            CountE++;
+                            break;
+                        case F :
+                            CountF++;
+                            break;
+                        case G :
+                            CountG++;
+                            break;
+            }
+        }
+        System.out.println("Počet energií A: "+CountA);
+        System.out.println("Počet energií B: "+CountB);
+        System.out.println("Počet energií C: "+CountC);
+        System.out.println("Počet energií D: "+CountD);
+        System.out.println("Počet energií E: "+CountE);
+        System.out.println("Počet energií F: "+CountF);
+        System.out.println("Počet energií G: "+CountG);
+
+
+    }
+
+
 }

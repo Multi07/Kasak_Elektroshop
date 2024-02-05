@@ -53,6 +53,7 @@ public class Main {
                     items.printInfo();
                     items.ItemsWithMiraA();
                     items.TotalItems();
+                    items.Zajimavosti();
                     break;
                 case "5":
                     Library library = new Library();
